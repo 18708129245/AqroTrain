@@ -1,0 +1,102 @@
+# ============================================================
+# AqroTrain .gitignore
+# 目的：只提交源码，排除构建产物与 IDE 缓存
+# 排除后：118 个文件 / 约 2.5 MB（原始目录 2.17 GB）
+# ============================================================
+
+# ---------- Visual Studio 缓存（约 1.33 GB，必须排除）----------
+# .ipch 单文件可达 170 MB，超过 GitHub 100 MB 硬限制会被直接拒绝
+.vs/
+*.ipch
+*.db
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# ---------- 构建输出（约 838 MB）----------
+# 含 OpenCV 二进制与 44 MB 模型文件，均不应进版本库
+build/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ---------- Qt 生成物 ----------
+# ui_*.h、moc_*.cpp、qrc_*.cpp 由 Qt 构建系统自动生成
+ui_*.h
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+*.qm
+Makefile
+Makefile.*
+*.pro.user
+*.pro.user.*
+
+# ---------- 编译中间产物 ----------
+*.obj
+*.o
+*.lo
+*.sbr
+*.res
+*.ilk
+*.pch
+*.pgc
+*.pgd
+*.rsp
+*.tmp
+*.temp
+
+# ---------- 编译产物（可执行文件与库）----------
+*.exe
+*.dll
+*.lib
+*.exp
+*.pdb
+*.idb
+*.ilk
+*.so
+*.dylib
+*.a
+
+# ---------- Visual Studio 用户设置 ----------
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# ---------- 其他 IDE ----------
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------- 系统文件 ----------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# ---------- 日志与临时文件 ----------
+*.log
+*.bak
+*.orig
+*.rej
+
+# ---------- 大文件保护（防止误将模型/权重提交）----------
+# 若确有模型需要版本管理，请使用 Git LFS：
+#   git lfs track "*.segmodel"
+*.segmodel
+*.onnx
+*.pt
+*.pth
+*.weights
+*.h5
+*.pb
+*.caffemodel

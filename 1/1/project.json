@@ -1,0 +1,28 @@
+{
+    "created": "2026-10-11T17:05:32",
+    "description": "",
+    "format": "AqroTrain.Project",
+    "imageFormat": "png",
+    "modules": [
+        {
+            "id": "m1",
+            "name": "图像分类",
+            "order": 0,
+            "type": "classification"
+        },
+        {
+            "id": "m2",
+            "name": "图像分割",
+            "order": 1,
+            "type": "segmentation"
+        },
+        {
+            "id": "m3",
+            "name": "图像分割",
+            "order": 2,
+            "type": "segmentation"
+        }
+    ],
+    "name": "1",
+    "version": 1
+}

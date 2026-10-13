@@ -1,0 +1,35 @@
+{
+    "classes": [
+        {
+            "color": "#000000",
+            "name": "背景"
+        },
+        {
+            "color": "#e6194b",
+            "name": "缺陷1"
+        }
+    ],
+    "hasBackground": true,
+    "id": "m2",
+    "name": "图像分割",
+    "order": 1,
+    "test": {
+        "iouThreshold": 0.5,
+        "minArea": 16,
+        "nmsThreshold": 0.45,
+        "scoreThreshold": 0.5
+    },
+    "train": {
+        "backend": "auto",
+        "batchSize": 8,
+        "epochs": 50,
+        "gpuIndex": 0,
+        "inputHeight": 220,
+        "inputWidth": 224,
+        "learningRate": 0.001,
+        "model": "resnet18",
+        "numWorkers": 2,
+        "useGpu": false
+    },
+    "type": "segmentation"
+}

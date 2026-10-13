@@ -1,0 +1,35 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file>style.qss</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>icons/brush.png</file>
+        <file>icons/eraser.png</file>
+        <file>icons/eye.png</file>
+        <file>icons/fit.png</file>
+        <file>icons/folder.png</file>
+        <file>icons/gear.png</file>
+        <file>icons/help.png</file>
+        <file>icons/import.png</file>
+        <file>icons/logo.png</file>
+        <file>icons/newfile.png</file>
+        <file>icons/next.png</file>
+        <file>icons/oneone.png</file>
+        <file>icons/pan.png</file>
+        <file>icons/play.png</file>
+        <file>icons/plus.png</file>
+        <file>icons/polygon.png</file>
+        <file>icons/prev.png</file>
+        <file>icons/rect.png</file>
+        <file>icons/redo.png</file>
+        <file>icons/save.png</file>
+        <file>icons/select.png</file>
+        <file>icons/test.png</file>
+        <file>icons/trash.png</file>
+        <file>icons/undo.png</file>
+        <file>icons/zoom.png</file>
+        <file>icons/zoomin.png</file>
+        <file>icons/zoomout.png</file>
+    </qresource>
+</RCC>

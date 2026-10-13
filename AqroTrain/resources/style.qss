@@ -1,0 +1,145 @@
+/* VisionTrainSeg 主题：深色工具栏 + 橙色强调色 + 浅色内容区 */
+QWidget {
+    font-family: "Microsoft YaHei", "微软雅黑";
+    font-size: 13px;
+    color: #333333;
+}
+QMainWindow, QDialog { background: #f2f3f5; }
+/* ---- 菜单栏 ---- */
+QMenuBar { background: #26282c; color: #d8d8d8; border-bottom: 1px solid #1c1e20; }
+QMenuBar::item { padding: 6px 14px; background: transparent; }
+QMenuBar::item:selected { background: #3a3d43; }
+QMenu { background: #2e3034; color: #dcdcdc; border: 1px solid #45484d; }
+QMenu::item { padding: 6px 30px; }
+QMenu::item:selected { background: #e8862e; color: #241300; }
+QMenu::item:disabled { color: #7a8394; }
+QMenu::separator { height: 1px; background: #45484d; margin: 4px 8px; }
+
+/* ---- 工具栏 ---- */
+/* 注意：QToolButton 必须显式指定 color。
+   否则会继承全局的 QWidget { color:#333333 }，深灰字压在深色工具栏上
+   对比度几乎为零（实测文字与背景同为 RGB(51,51,51)，完全看不见）。 */
+QToolBar { background: #26282c; border: none; spacing: 4px; padding: 5px; }
+QToolBar::separator { background: #45484d; width: 1px; margin: 4px 6px; }
+QToolBar QLabel { color: #cccccc; background: transparent; }
+QToolButton {
+    background: transparent; border: 1px solid transparent; border-radius: 4px;
+    padding: 4px; color: #d8dce2;
+}
+QToolButton:hover { background: #3a3d43; border-color: #4c4f56; color: #ffffff; }
+/* 选中态用橙色底 + 深色字：白字压橙底对比度只有约 2.7:1，偏难读 */
+QToolButton:checked, QToolButton:pressed {
+    background: #e8862e; border-color: #f09a45; color: #241300;
+}
+QToolButton:disabled { background: transparent; color: #7a8394; }
+QToolButton::menu-indicator { image: none; }
+
+/* ---- 按钮 ---- */
+QPushButton {
+    background: #f7f7f7; border: 1px solid #c6c8cc; border-radius: 3px;
+    padding: 6px 18px; color: #333333; min-height: 20px;
+}
+QPushButton:hover { border-color: #e8862e; color: #e8862e; }
+QPushButton:pressed { background: #ececec; }
+QPushButton:disabled { color: #aaaaaa; background: #efefef; border-color: #dddddd; }
+QPushButton[primary="true"] { background: #e8862e; color: #ffffff; border: 1px solid #d97a24; }
+QPushButton[primary="true"]:hover { background: #f0943a; color: #ffffff; }
+QPushButton[primary="true"]:pressed { background: #d97a24; }
+QPushButton[big="true"] { font-size: 15px; border-radius: 4px; }
+
+/* ---- 标签 ---- */
+QLabel#hintLabel {
+    background: #fff7e6; border: 1px solid #f0c36d; border-radius: 4px;
+    color: #8a6d3b; padding: 8px;
+}
+QLabel#panelHeader { color: #666666; font-weight: bold; padding: 2px; }
+QLabel#stepLabel { color: #e8862e; font-weight: bold; }
+
+/* 画布上方的引导提示栏：随任务与状态实时说明「下一步该做什么」 */
+QLabel#hintBar {
+    background: #eaf3fb; border-bottom: 1px solid #c3d9ef;
+    color: #2c4a63; padding: 6px 10px;
+}
+/* 面板里的补充说明（弱化） */
+QLabel#panelHint { color: #7a8394; font-size: 12px; padding: 2px; }
+/* 面板里的警示（如类别缺失、目录创建失败） */
+QLabel#panelWarn { color: #b45309; font-size: 12px; padding: 2px; }
+
+/* ---- 模块链（AIDI 顶部模块序列） ---- */
+QToolButton#moduleCard {
+    background: #eef0f3; border: 1px solid #c9cbd0; border-radius: 5px;
+    color: #333333; padding: 4px 12px; min-width: 92px;
+}
+QToolButton#moduleCard:hover { background: #e3e6ea; border-color: #e8862e; color: #333333; }
+QToolButton#moduleCard:checked {
+    background: #e8862e; border-color: #d97a24; color: #ffffff; font-weight: bold;
+}
+QToolButton#moduleBarAction {
+    background: #f7f7f7; border: 1px solid #c6c8cc; border-radius: 5px;
+    color: #333333; padding: 4px 12px;
+}
+QToolButton#moduleBarAction:hover { border-color: #e8862e; color: #e8862e; }
+QToolButton#moduleBarAction:disabled { color: #aaaaaa; border-color: #dddddd; }
+
+/* ---- 可收起区块标题（训练参数 / 测试参数） ---- */
+QToolButton#sectionHeader {
+    background: #e9ebee; border: 1px solid #d3d6da; border-radius: 4px;
+    color: #444444; font-weight: bold; padding: 5px 8px; text-align: left;
+}
+QToolButton#sectionHeader:hover { background: #e0e3e7; color: #e8862e; }
+
+/* ---- 列表 ---- */
+QListWidget { background: #ffffff; border: 1px solid #d6d8dc; border-radius: 3px; outline: none; }
+QListWidget::item { padding: 5px 6px; }
+QListWidget::item:selected { background: #fdebd7; color: #333333; border-left: 3px solid #e8862e; }
+QListWidget::item:hover { background: #f5f5f5; }
+
+/* ---- 选项卡 ---- */
+QTabWidget::pane { border: 1px solid #d6d8dc; background: #ffffff; }
+QTabBar::tab {
+    background: #ececec; color: #555555; padding: 6px 22px;
+    border: 1px solid #d6d8dc; border-bottom: none; margin-right: 2px;
+}
+QTabBar::tab:selected { background: #ffffff; color: #e8862e; font-weight: bold; border-top: 2px solid #e8862e; }
+
+/* ---- 画布 ---- */
+QGraphicsView { background: #333333; }
+
+/* ---- 其他控件 ---- */
+QCheckBox { spacing: 6px; }
+QStatusBar { background: #ececec; color: #555555; }
+QStatusBar QLabel { padding: 0 8px; }
+QProgressBar { border: 1px solid #d0d2d6; border-radius: 3px; text-align: center; background: #ffffff; height: 16px; }
+QProgressBar::chunk { background: #e8862e; }
+QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox, QPlainTextEdit {
+    background: #ffffff; border: 1px solid #c9cbd0; border-radius: 3px;
+    padding: 4px 6px; selection-background-color: #e8862e;
+}
+QComboBox QAbstractItemView {
+    background: #ffffff; border: 1px solid #c9cbd0;
+    selection-background-color: #fdebd7; selection-color: #333333;
+}
+QDockWidget::title { background: #e4e5e8; padding: 6px; color: #444444; }
+QSplitter::handle { background: #d6d8dc; }
+QToolTip { background: #333333; color: #eeeeee; border: 1px solid #555555; padding: 4px; }
+
+/* ---- 表格（评价指标） ---- */
+QTableWidget {
+    background: #ffffff; border: 1px solid #d6d8dc; border-radius: 3px; outline: none;
+    gridline-color: #eceef1;
+}
+QHeaderView::section {
+    background: #e9ebee; color: #555555; padding: 4px 6px; border: none;
+    border-right: 1px solid #d6d8dc; border-bottom: 1px solid #d6d8dc;
+}
+QTableWidget::item { padding: 3px 6px; }
+
+/* ---- 滚动条：默认样式在深色画布上过于刺眼 ---- */
+QScrollBar:vertical { background: #e8e9eb; width: 11px; margin: 0; }
+QScrollBar::handle:vertical { background: #b9bcc2; border-radius: 5px; min-height: 24px; }
+QScrollBar::handle:vertical:hover { background: #e8862e; }
+QScrollBar:horizontal { background: #e8e9eb; height: 11px; margin: 0; }
+QScrollBar::handle:horizontal { background: #b9bcc2; border-radius: 5px; min-width: 24px; }
+QScrollBar::handle:horizontal:hover { background: #e8862e; }
+QScrollBar::add-line, QScrollBar::sub-line { height: 0; width: 0; }
+QScrollBar::add-page, QScrollBar::sub-page { background: transparent; }

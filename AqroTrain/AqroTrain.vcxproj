@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C1D2E3F4-A5B6-4C7D-8E9F-0A1B2C3D4E5F}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <RootNamespace>AqroTrain</RootNamespace>
+    <ProjectName>AqroTrain</ProjectName>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+
+  <ImportGroup Label="PropertySheets">
+    <Import Project="props\OpenCV.props" />
+    <Import Project="props\LibTorch.props" />
+  </ImportGroup>
+
+  <PropertyGroup Label="UserMacros" />
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Platform)\$(Configuration)\obj\</IntDir>
+    <TargetName>AqroTrain</TargetName>
+    <QtInstall>5.12.10_msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Platform)\$(Configuration)\obj\</IntDir>
+    <TargetName>AqroTrain</TargetName>
+    <QtInstall>5.12.10_msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN64;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/utf-8 /bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN64;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/utf-8 /bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- =====================================================================
+       源文件与头文件清单
+       =====================================================================
+       刻意使用「显式文件列表」而不是 src\**\*.cpp 这类通配符：
+       VS 的 C++ 项目系统不支持 vcxproj 中的通配符，会给出
+       「VC 项目不支持项目定义中使用的通配符」警告并可能导致项目加载异常。
+
+       同时：带 Q_OBJECT 的头文件只能出现在 QtMoc 项中，不能同时出现在
+       ClInclude 中，否则 VS 会报「筛选器下已存在项目」而使整个项目加载失败。
+       ===================================================================== -->
+  <ItemGroup>
+    <!-- 入口与自检 -->
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\SelfTest.cpp" />
+    <ClInclude Include="src\SelfTest.h" />
+
+    <!-- core：基础契约、图像 IO、JSON、指标 -->
+    <ClCompile Include="src\core\Types.cpp" />
+    <ClCompile Include="src\core\ImageIO.cpp" />
+    <ClCompile Include="src\core\JsonStore.cpp" />
+    <ClCompile Include="src\core\Metrics.cpp" />
+    <ClInclude Include="src\core\Types.h" />
+    <ClInclude Include="src\core\ImageIO.h" />
+    <ClInclude Include="src\core\JsonStore.h" />
+    <ClInclude Include="src\core\Metrics.h" />
+
+    <!-- project：工程 / 模块 / 样本状态 / 协调器 -->
+    <ClCompile Include="src\project\Project.cpp" />
+    <ClCompile Include="src\project\Module.cpp" />
+    <ClCompile Include="src\project\SampleIndex.cpp" />
+    <ClCompile Include="src\project\ProjectManager.cpp" />
+    <ClInclude Include="src\project\Project.h" />
+    <ClInclude Include="src\project\Module.h" />
+    <ClInclude Include="src\project\SampleIndex.h" />
+    <QtMoc Include="src\project\ProjectManager.h" />
+
+    <!-- annotate：标注对象模型与画布 -->
+    <ClCompile Include="src\annotate\AnnoObject.cpp" />
+    <ClCompile Include="src\annotate\GraphicsItems.cpp" />
+    <ClCompile Include="src\annotate\ImageCanvas.cpp" />
+    <ClInclude Include="src\annotate\AnnoObject.h" />
+    <ClInclude Include="src\annotate\GraphicsItems.h" />
+    <QtMoc Include="src\annotate\ImageCanvas.h" />
+
+    <!-- train：训练后端与评价器 -->
+    <ClCompile Include="src\train\ITrainer.cpp" />
+    <ClCompile Include="src\train\ModelIO.cpp" />
+    <ClCompile Include="src\train\OpenCvTrainer.cpp" />
+    <ClCompile Include="src\train\LibTorchTrainer.cpp" />
+    <ClCompile Include="src\train\TrainerFactory.cpp" />
+    <ClCompile Include="src\train\Evaluator.cpp" />
+    <QtMoc Include="src\train\ITrainer.h" />
+    <QtMoc Include="src\train\OpenCvTrainer.h" />
+    <QtMoc Include="src\train\LibTorchTrainer.h" />
+    <QtMoc Include="src\train\Evaluator.h" />
+
+    <!-- ui：界面 -->
+    <ClCompile Include="src\ui\MainWindow.cpp" />
+    <ClCompile Include="src\ui\ModuleBar.cpp" />
+    <ClCompile Include="src\ui\ImageListPanel.cpp" />
+    <ClCompile Include="src\ui\ClassPanel.cpp" />
+    <ClCompile Include="src\ui\ObjectPanel.cpp" />
+    <ClCompile Include="src\ui\ParamPanel.cpp" />
+    <ClCompile Include="src\ui\DisplayControl.cpp" />
+    <ClCompile Include="src\ui\MetricsPanel.cpp" />
+    <ClCompile Include="src\ui\LossChartWidget.cpp" />
+    <ClCompile Include="src\ui\TrainMonitorDialog.cpp" />
+    <ClCompile Include="src\ui\TestModelDialog.cpp" />
+    <ClCompile Include="src\ui\NewProjectDialog.cpp" />
+    <ClCompile Include="src\ui\AddModuleDialog.cpp" />
+    <ClCompile Include="src\ui\ExportModelDialog.cpp" />
+    <ClCompile Include="src\ui\PreAnnotateDialog.cpp" />
+    <QtMoc Include="src\ui\MainWindow.h" />
+    <QtMoc Include="src\ui\ModuleBar.h" />
+    <QtMoc Include="src\ui\ImageListPanel.h" />
+    <QtMoc Include="src\ui\ClassPanel.h" />
+    <QtMoc Include="src\ui\ObjectPanel.h" />
+    <QtMoc Include="src\ui\ParamPanel.h" />
+    <QtMoc Include="src\ui\DisplayControl.h" />
+    <QtMoc Include="src\ui\MetricsPanel.h" />
+    <QtMoc Include="src\ui\LossChartWidget.h" />
+    <QtMoc Include="src\ui\TrainMonitorDialog.h" />
+    <QtMoc Include="src\ui\TestModelDialog.h" />
+    <QtMoc Include="src\ui\NewProjectDialog.h" />
+    <QtMoc Include="src\ui\AddModuleDialog.h" />
+    <QtMoc Include="src\ui\ExportModelDialog.h" />
+    <QtMoc Include="src\ui\PreAnnotateDialog.h" />
+
+    <!-- 资源 -->
+    <QtRcc Include="resources\resources.qrc" />
+    <None Include="resources\style.qss" />
+
+    <!-- 属性表 -->
+    <None Include="props\OpenCV.props" />
+    <None Include="props\LibTorch.props" />
+  </ItemGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+</Project>

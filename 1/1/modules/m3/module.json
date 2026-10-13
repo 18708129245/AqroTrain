@@ -1,0 +1,43 @@
+{
+    "classes": [
+        {
+            "color": "#000000",
+            "name": "背景"
+        },
+        {
+            "color": "#e6194b",
+            "name": "缺陷1"
+        },
+        {
+            "color": "#ffe119",
+            "name": "缺陷2"
+        },
+        {
+            "color": "#4363d8",
+            "name": "缺陷3"
+        }
+    ],
+    "hasBackground": true,
+    "id": "m3",
+    "name": "图像分割",
+    "order": 2,
+    "test": {
+        "iouThreshold": 0.5,
+        "minArea": 16,
+        "nmsThreshold": 0.45,
+        "scoreThreshold": 0.5
+    },
+    "train": {
+        "backend": "opencv",
+        "batchSize": 8,
+        "epochs": 50,
+        "gpuIndex": 0,
+        "inputHeight": 224,
+        "inputWidth": 224,
+        "learningRate": 0.001,
+        "model": "resnet18",
+        "numWorkers": 2,
+        "useGpu": false
+    },
+    "type": "segmentation"
+}

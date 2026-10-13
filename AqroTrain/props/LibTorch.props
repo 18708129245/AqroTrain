@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- ============================================================
+       LibTorch（PyTorch C++）可选后端属性表
+       ============================================================
+       本属性表默认「自动探测」：
+         · 若设置了环境变量 LIBTORCH_DIR（解压后的 libtorch 根目录，
+           其中应含 include\torch\script.h 与 lib\torch.lib），
+           则自动启用 LibTorch 后端并定义宏 AQROTRAIN_ENABLE_LIBTORCH；
+         · 否则保持关闭，程序使用内置的 OpenCV 轻量训练后端，
+           工程仍然可以正常编译运行。
+
+       手动指定示例（命令行或 VS 属性管理器）：
+         /p:LibTorch_DIR=D:\libtorch
+         /p:LibTorchEnabled=true
+
+       下载地址：https://pytorch.org/get-started/locally/
+                 （选 LibTorch -> Windows -> Release -> C++/Java -> CPU 或 CUDA）
+       ============================================================ -->
+  <PropertyGroup Label="UserMacros">
+    <LibTorch_DIR Condition="'$(LibTorch_DIR)'==''">$(LIBTORCH_DIR)</LibTorch_DIR>
+    <LibTorchEnabled Condition="'$(LibTorchEnabled)'=='' And '$(LibTorch_DIR)'!='' And Exists('$(LibTorch_DIR)\include\torch\script.h')">true</LibTorchEnabled>
+    <LibTorchEnabled Condition="'$(LibTorchEnabled)'==''">false</LibTorchEnabled>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(LibTorchEnabled)'=='true'">
+    <IncludePath>$(LibTorch_DIR)\include;$(LibTorch_DIR)\include\torch\csrc\api\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibTorch_DIR)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup Condition="'$(LibTorchEnabled)'=='true'">
+    <ClCompile>
+      <PreprocessorDefinitions>AQROTRAIN_ENABLE_LIBTORCH;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>torch.lib;torch_cpu.lib;c10.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <!-- LibTorch(CPU) 需要强制引入该符号，否则报无法解析的外部符号 -->
+      <AdditionalOptions>/INCLUDE:?warp_size@cuda@at@@YAHXZ %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(LibTorch_DIR)\lib\*.dll" "$(OutDir)"</Command>
+      <Message>复制 LibTorch 运行库到输出目录</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+</Project>

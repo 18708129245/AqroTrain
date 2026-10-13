@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- ============================================================
+       OpenCV 属性表
+       ============================================================
+       本机实测路径：F:\opencv\build   （OpenCV 4.6.0，x64\vc15）
+       若你的 OpenCV 在别处，改下面的 OpenCV_DIR 即可，
+       或在命令行传 /p:OpenCV_DIR=... 覆盖。
+       vc15 的库与 VS2022 (v143) 二进制兼容，可直接使用。
+       ============================================================ -->
+  <PropertyGroup Label="UserMacros">
+    <OpenCV_DIR Condition="'$(OpenCV_DIR)'==''">F:\opencv\build</OpenCV_DIR>
+    <OpenCV_VER Condition="'$(OpenCV_VER)'==''">460</OpenCV_VER>
+    <OpenCV_VC  Condition="'$(OpenCV_VC)'==''">vc15</OpenCV_VC>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IncludePath>$(OpenCV_DIR)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OpenCV_DIR)\x64\$(OpenCV_VC)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Debug'">opencv_world$(OpenCV_VER)d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Release'">opencv_world$(OpenCV_VER).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(OpenCV_DIR)\x64\$(OpenCV_VC)\bin\opencv_world$(OpenCV_VER)*.dll" "$(OutDir)"</Command>
+      <Message>复制 OpenCV 运行库到输出目录</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <BuildMacro Include="OpenCV_DIR">
+      <Value>$(OpenCV_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="OpenCV_VER">
+      <Value>$(OpenCV_VER)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

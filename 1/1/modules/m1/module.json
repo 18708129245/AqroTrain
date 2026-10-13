@@ -1,0 +1,35 @@
+{
+    "classes": [
+        {
+            "color": "#e6194b",
+            "name": "OK"
+        },
+        {
+            "color": "#3cb44b",
+            "name": "NG"
+        }
+    ],
+    "hasBackground": false,
+    "id": "m1",
+    "name": "图像分类",
+    "order": 0,
+    "test": {
+        "iouThreshold": 0.5,
+        "minArea": 16,
+        "nmsThreshold": 0.45,
+        "scoreThreshold": 0.5
+    },
+    "train": {
+        "backend": "opencv",
+        "batchSize": 8,
+        "epochs": 50,
+        "gpuIndex": 0,
+        "inputHeight": 220,
+        "inputWidth": 224,
+        "learningRate": 0.001,
+        "model": "resnet18",
+        "numWorkers": 2,
+        "useGpu": false
+    },
+    "type": "classification"
+}

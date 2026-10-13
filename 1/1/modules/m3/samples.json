@@ -1,0 +1,21 @@
+{
+    "format": "AqroTrain.Samples",
+    "samples": {
+        "1151_2.png": {
+            "ok": false,
+            "split": "none",
+            "state": "done"
+        },
+        "1173.png": {
+            "ok": false,
+            "split": "none",
+            "state": "none"
+        },
+        "1184.png": {
+            "ok": false,
+            "split": "none",
+            "state": "none"
+        }
+    },
+    "version": 1
+}

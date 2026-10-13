@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{9a1b0c11-0001-4000-8000-000000000001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\core">
+      <UniqueIdentifier>{9a1b0c11-0002-4000-8000-000000000002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\project">
+      <UniqueIdentifier>{9a1b0c11-0003-4000-8000-000000000003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\annotate">
+      <UniqueIdentifier>{9a1b0c11-0004-4000-8000-000000000004}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\train">
+      <UniqueIdentifier>{9a1b0c11-000e-4000-8000-00000000000e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui">
+      <UniqueIdentifier>{9a1b0c11-0005-4000-8000-000000000005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{9a1b0c11-0006-4000-8000-000000000006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\core">
+      <UniqueIdentifier>{9a1b0c11-0007-4000-8000-000000000007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\project">
+      <UniqueIdentifier>{9a1b0c11-0008-4000-8000-000000000008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\annotate">
+      <UniqueIdentifier>{9a1b0c11-0009-4000-8000-000000000009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\train">
+      <UniqueIdentifier>{9a1b0c11-000f-4000-8000-00000000000f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ui">
+      <UniqueIdentifier>{9a1b0c11-000a-4000-8000-00000000000a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{9a1b0c11-000b-4000-8000-00000000000b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="属性表">
+      <UniqueIdentifier>{9a1b0c11-000c-4000-8000-00000000000c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SelfTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Types.cpp">
+      <Filter>源文件\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\ImageIO.cpp">
+      <Filter>源文件\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\JsonStore.cpp">
+      <Filter>源文件\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Metrics.cpp">
+      <Filter>源文件\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\project\Project.cpp">
+      <Filter>源文件\project</Filter>
+    </ClCompile>
+    <ClCompile Include="src\project\Module.cpp">
+      <Filter>源文件\project</Filter>
+    </ClCompile>
+    <ClCompile Include="src\project\SampleIndex.cpp">
+      <Filter>源文件\project</Filter>
+    </ClCompile>
+    <ClCompile Include="src\project\ProjectManager.cpp">
+      <Filter>源文件\project</Filter>
+    </ClCompile>
+    <ClCompile Include="src\annotate\AnnoObject.cpp">
+      <Filter>源文件\annotate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\annotate\GraphicsItems.cpp">
+      <Filter>源文件\annotate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\annotate\ImageCanvas.cpp">
+      <Filter>源文件\annotate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\train\ITrainer.cpp">
+      <Filter>源文件\train</Filter>
+    </ClCompile>
+    <ClCompile Include="src\train\ModelIO.cpp">
+      <Filter>源文件\train</Filter>
+    </ClCompile>
+    <ClCompile Include="src\train\OpenCvTrainer.cpp">
+      <Filter>源文件\train</Filter>
+    </ClCompile>
+    <ClCompile Include="src\train\LibTorchTrainer.cpp">
+      <Filter>源文件\train</Filter>
+    </ClCompile>
+    <ClCompile Include="src\train\TrainerFactory.cpp">
+      <Filter>源文件\train</Filter>
+    </ClCompile>
+    <ClCompile Include="src\train\Evaluator.cpp">
+      <Filter>源文件\train</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\MainWindow.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\ModuleBar.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\ImageListPanel.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\ClassPanel.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\ObjectPanel.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\ParamPanel.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\DisplayControl.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\MetricsPanel.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\LossChartWidget.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\TrainMonitorDialog.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\TestModelDialog.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\NewProjectDialog.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\AddModuleDialog.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\ExportModelDialog.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\PreAnnotateDialog.cpp">
+      <Filter>源文件\ui</Filter>
+    </ClCompile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClInclude Include="src\SelfTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Types.h">
+      <Filter>头文件\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\ImageIO.h">
+      <Filter>头文件\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\JsonStore.h">
+      <Filter>头文件\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Metrics.h">
+      <Filter>头文件\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\project\Project.h">
+      <Filter>头文件\project</Filter>
+    </ClInclude>
+    <ClInclude Include="src\project\Module.h">
+      <Filter>头文件\project</Filter>
+    </ClInclude>
+    <ClInclude Include="src\project\SampleIndex.h">
+      <Filter>头文件\project</Filter>
+    </ClInclude>
+    <ClInclude Include="src\annotate\AnnoObject.h">
+      <Filter>头文件\annotate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\annotate\GraphicsItems.h">
+      <Filter>头文件\annotate</Filter>
+    </ClInclude>
+  </ItemGroup>
+
+  <ItemGroup>
+    <QtMoc Include="src\project\ProjectManager.h">
+      <Filter>头文件\project</Filter>
+    </QtMoc>
+    <QtMoc Include="src\train\ITrainer.h">
+      <Filter>头文件\train</Filter>
+    </QtMoc>
+    <QtMoc Include="src\train\OpenCvTrainer.h">
+      <Filter>头文件\train</Filter>
+    </QtMoc>
+    <QtMoc Include="src\train\LibTorchTrainer.h">
+      <Filter>头文件\train</Filter>
+    </QtMoc>
+    <QtMoc Include="src\train\Evaluator.h">
+      <Filter>头文件\train</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\MainWindow.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\annotate\ImageCanvas.h">
+      <Filter>头文件\annotate</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\ModuleBar.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\ImageListPanel.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\ClassPanel.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\ObjectPanel.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\ParamPanel.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\DisplayControl.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\MetricsPanel.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\LossChartWidget.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\TrainMonitorDialog.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\TestModelDialog.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\NewProjectDialog.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\AddModuleDialog.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\ExportModelDialog.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+    <QtMoc Include="src\ui\PreAnnotateDialog.h">
+      <Filter>头文件\ui</Filter>
+    </QtMoc>
+  </ItemGroup>
+
+  <ItemGroup>
+    <QtRcc Include="resources\resources.qrc">
+      <Filter>资源文件</Filter>
+    </QtRcc>
+    <None Include="resources\style.qss">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="props\OpenCV.props">
+      <Filter>属性表</Filter>
+    </None>
+    <None Include="props\LibTorch.props">
+      <Filter>属性表</Filter>
+    </None>
+  </ItemGroup>
+</Project>
